@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ROI & Sales Impact Calculator</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(to right, #6a11cb, #2575fc);
+            color: white;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            max-width: 400px;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .btn-highlight {
+            background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+            color: #333;
+            font-weight: bold;
+            transition: all 0.3s;
+            border: none;
+        }
+
+        .btn-highlight:hover {
+            background: linear-gradient(135deg, #fad0c4, #ff9a9e);
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container text-center">
+        <h1 class="mb-4">Mantis ROI & Sales Impact Calculator</h1>
+        <select class="form-select mb-3" id="calculatorType" onchange="toggleCalculator()">
+            <option value="roi">ROI Calculator</option>
+            <option value="sales">Sales Impact Calculator</option>
+        </select>
+
+        <div id="roiCalculator">
+            <input type="number" class="form-control mb-2" id="salary" placeholder="Monthly Salary ($)" value="5000">
+            <input type="number" class="form-control mb-2" id="revenue" placeholder="Revenue Generated ($)">
+            <input type="number" class="form-control mb-2" id="savings" placeholder="Cost Savings ($)">
+            <input type="number" class="form-control mb-2" id="timeValue" placeholder="Time Saved Value ($)">
+            <button class="btn btn-highlight w-100" onclick="calculateROI()">Calculate ROI</button>
+            <div class="result mt-3" id="roiResult"></div>
+        </div>
+
+        <div id="salesCalculator" style="display: none;">
+            <input type="number" class="form-control mb-2" id="dealValue" placeholder="Deal Value ($)">
+            <input type="number" class="form-control mb-2" id="numDeals" placeholder="Number of Deals per Month">
+            <input type="number" class="form-control mb-2" id="salaryCost" placeholder="Monthly Salary ($)"
+                value="5000">
+            <button class="btn btn-highlight w-100" onclick="calculateSalesImpact()">Calculate Sales Impact</button>
+            <div class="result mt-3" id="salesResult"></div>
+        </div>
+    </div>
+
+    <script>
+        function toggleCalculator() {
+            const type = document.getElementById("calculatorType").value;
+            document.getElementById("roiCalculator").style.display = type === "roi" ? "block" : "none";
+            document.getElementById("salesCalculator").style.display = type === "sales" ? "block" : "none";
+        }
+
+        function calculateROI() {
+            const salary = parseFloat(document.getElementById("salary").value) || 0;
+            const revenue = parseFloat(document.getElementById("revenue").value) || 0;
+            const savings = parseFloat(document.getElementById("savings").value) || 0;
+            const timeValue = parseFloat(document.getElementById("timeValue").value) || 0;
+
+            const totalValue = revenue + savings + timeValue;
+            const roi = ((totalValue - salary) / salary) * 100;
+
+            document.getElementById("roiResult").innerText = `Total Value: $${totalValue.toFixed(2)} | ROI: ${roi.toFixed(2)}%`;
+        }
+
+        function calculateSalesImpact() {
+            const dealValue = parseFloat(document.getElementById("dealValue").value) || 0;
+            const numDeals = parseFloat(document.getElementById("numDeals").value) || 0;
+            const salaryCost = parseFloat(document.getElementById("salaryCost").value) || 0;
+
+            const totalRevenue = dealValue * numDeals;
+            const netImpact = totalRevenue - salaryCost;
+
+            document.getElementById("salesResult").innerText = `Total Revenue: $${totalRevenue.toFixed(2)} | Net Impact: $${netImpact.toFixed(2)}`;
+        }
+    </script>
+</body>
+
+</html>
