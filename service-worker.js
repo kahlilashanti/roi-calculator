@@ -5,7 +5,7 @@ self.addEventListener('install', event => {
                 '/',
                 '/index.html',
                 '/manifest.json',
-                '/service-worker.js',
+                '/script.js',
                 '/icons/mantisxr_icon_black_192x192.png',
                 '/icons/mantisxr_icon_black_512x512.png'
             ]);
