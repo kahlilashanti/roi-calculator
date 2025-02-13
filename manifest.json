@@ -3,12 +3,12 @@
     "short_name": "ROI Calc",
     "icons": [
         {
-            "src": "icons/mantisxr_icon_192x192.png",
+            "src": "icons/mantisxr_icon_black_192x192.png",
             "sizes": "192x192",
             "type": "image/png"
         },
         {
-            "src": "icons/mantisxr_icon_512x512.png",
+            "src": "icons/mantisxr_icon_black_512x512.png",
             "sizes": "512x512",
             "type": "image/png"
         }

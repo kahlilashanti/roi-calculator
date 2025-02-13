@@ -5,8 +5,8 @@ self.addEventListener('install', event => {
                 '/',
                 '/index.html',
                 '/manifest.json',
-                '/icons/mantisxr_icon_192x192.png',
-                '/icons/mantisxr_icon_512x512.png'
+                '/icons/mantisxr_icon_black_192x192.png',
+                '/icons/mantisxr_icon_black_512x512.png'
             ]);
         })
     );
