@@ -13,7 +13,7 @@
             "type": "image/png"
         }
     ],
-    "start_url": "/",
+    "start_url": "https://kahlilashanti.github.io/roi-sales-calculator/",
     "display": "standalone",
     "background_color": "#6a11cb",
     "theme_color": "#6a11cb"
