@@ -2,12 +2,12 @@ self.addEventListener('install', event => {
     event.waitUntil(
         caches.open('mantis-roi-cache').then(cache => {
             return cache.addAll([
-                '/',
-                '/index.html',
-                '/manifest.json',
-                '/script.js',
-                '/icons/mantisxr_icon_black_192x192.png',
-                '/icons/mantisxr_icon_black_512x512.png'
+                './',  // Root
+                './index.html',
+                './manifest.json',
+                './script.js',
+                './icons/mantisxr_icon_black_192x192.png',
+                './icons/mantisxr_icon_black_512x512.png'
             ]);
         })
     );
@@ -20,3 +20,4 @@ self.addEventListener('fetch', event => {
         })
     );
 });
+

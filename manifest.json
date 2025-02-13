@@ -3,17 +3,17 @@
     "short_name": "ROI Calc",
     "icons": [
         {
-            "src": "/icons/mantisxr_icon_black_192x192.png",
+            "src": "icons/mantisxr_icon_black_192x192.png",
             "sizes": "192x192",
             "type": "image/png"
         },
         {
-            "src": "/icons/mantisxr_icon_black_512x512.png",
+            "src": "icons/mantisxr_icon_black_512x512.png",
             "sizes": "512x512",
             "type": "image/png"
         }
     ],
-    "start_url": "/index.html",
+    "start_url": "index.html",
     "display": "standalone",
     "background_color": "#6a11cb",
     "theme_color": "#6a11cb"
